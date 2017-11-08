@@ -37,7 +37,8 @@
                             <td><%= alumno.getIdAlumno()%></td>
                             <td><%= alumno.getNombre()%></td>
                             <td><%= alumno.getGrupo() %></td>
-                            <td><%= alumno.getEquipo().getMarca()%> - <%= alumno.getEquipo().getNumSerie()%></td>
+                            <!--Añadir equipo-->
+                            <td><%= alumno.getEquipo().getIdEquipo()%> - <%= alumno.getEquipo().getMarca()%> - <%= alumno.getEquipo().getNumSerie()%></td>
                         </tr>
                         <%
                             }

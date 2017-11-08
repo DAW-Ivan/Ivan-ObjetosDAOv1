@@ -62,7 +62,7 @@ public class Controlador extends HttpServlet {
         }
 
         if (!error) {
-
+            //Llamar al método getAlumnosEquipo para obtener también los equipos
             IAlumnosDAO adao = new AlumnosDAO();
             ArrayList<Alumno> alumnos = adao.getAlumnosEquipo(clausulaWhere);
             request.setAttribute("alumnos", alumnos);

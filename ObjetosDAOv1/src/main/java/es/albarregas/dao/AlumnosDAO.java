@@ -35,25 +35,24 @@ public class AlumnosDAO implements IAlumnosDAO {
         }
         return lista;
     }
-
+    //Usar getAlumnos para obtener array de alumnos y añadir su equipo
     public ArrayList<Alumno> getAlumnosEquipo(String limit) {
 
-        ArrayList<Alumno> alumnos = getAlumnos(limit);
-        ArrayList<Alumno> lista=new ArrayList<Alumno>();
+        ArrayList<Alumno> lista = getAlumnos(limit);
         String consulta = "SELECT * FROM alumnos NATURAL join equipos where idAlumno=?";
         try {
             Connection conexion=ConnectionFactory.getConnection();
             PreparedStatement preparada = conexion.prepareStatement(consulta);
-            for (Alumno a : alumnos) {
-                preparada.setInt(1, a.getIdAlumno());
+            for (int i=0;i<lista.size();i++) {
+                
+                preparada.setInt(1, lista.get(i).getIdAlumno());
                 ResultSet resultado = preparada.executeQuery();
                 while (resultado.next()) {
                     Equipo equipo = new Equipo();
                     equipo.setIdEquipo(resultado.getInt("idEquipo"));
                     equipo.setMarca(resultado.getString("marca"));
                     equipo.setNumSerie(resultado.getString("numSerie"));
-                    a.setEquipo(equipo);
-                    lista.add(a);
+                    lista.get(i).setEquipo(equipo);
                 }
                 resultado.close();              
             }
