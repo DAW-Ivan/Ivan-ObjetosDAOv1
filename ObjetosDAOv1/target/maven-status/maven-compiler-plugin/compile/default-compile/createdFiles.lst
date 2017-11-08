@@ -1,0 +1,6 @@
+es\albarregas\dao\AlumnosDAO.class
+es\albarregas\controllers\Controlador.class
+es\albarregas\dao\ConnectionFactory.class
+es\albarregas\dao\IAlumnosDAO.class
+es\albarregas\beans\Equipo.class
+es\albarregas\beans\Alumno.class
