@@ -55,7 +55,7 @@ public class Controlador extends HttpServlet {
 
         if (request.getParameter("all") != null) {
             clausulaWhere = "";
-        } else if (cantidad != null) {
+        } else if (!cantidad.equals("")) {
             clausulaWhere = " limit " + cantidad;
         } else {
             error = true;
